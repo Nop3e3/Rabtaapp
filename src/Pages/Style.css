@@ -1,0 +1,201 @@
+.body{
+width: 440px;
+height: 956px;
+display: flex;
+justify-self: center;
+background: linear-gradient(0deg, rgba(253, 247, 78, 0.60) -84.5%, rgba(0, 0, 0, 0.00) 100%), 
+                     linear-gradient(0deg, #1E1E1E -2.57%, rgba(0, 0, 0, 0.38) 192.79%), 
+                     linear-gradient(180deg, #000 0%, #1E1E1E 100%);
+stroke-width: 1px;
+
+
+
+  position: relative;
+
+overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lexend Exa', sans-serif;
+  overflow: hidden;
+  
+  box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700&display=swap');
+
+/* ── Root ───────────────────────────────────────────────── */
+.rabta-root {
+  position: relative;
+  min-height: 100vh;
+  background-color: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lexend Exa', sans-serif;
+  overflow: hidden;
+  padding: 48px 24px;
+  box-sizing: border-box;
+}
+
+/* Subtle noise / grain overlay */
+.rabta-bg-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+/* ── Container ───────────────────────────────────────────── */
+.rabta-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+    background-image: url(../Assets/BG.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  padding-top: 330px;
+  border-radius: 20px;
+  padding-bottom: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-position: top;
+  opacity:1;
+}
+
+/* ── Star ────────────────────────────────────────────────── */
+.rabta-top {
+  margin-bottom: 28px;
+  animation: starPulse 3s ease-in-out infinite;
+}
+
+.rabta-star {
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+}
+
+@keyframes starPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1) rotate(0deg); }
+  50%       { opacity: 1;    transform: scale(1.08) rotate(15deg); }
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+.rabta-hero {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.rabta-headline {
+  font-size: clamp(1.45rem, 5.5vw, 1.75rem);
+  line-height: 1.45;
+  letter-spacing: 0.12em;
+  margin: 0 0 18px;
+  color: #c8c8c4;
+}
+
+.rabta-headline-light {
+  font-weight: 300;
+  color: #b0b0aa;
+}
+
+.rabta-headline-bold {
+  font-weight: 700;
+  color: #d8d8d0;
+}
+
+.rabta-headline-accent {
+  font-weight: 700;
+  color: #d8d8d0;   /* muted olive-green — matches the screenshot's tinted "Rabta." */
+}
+
+.rabta-subline {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #666660;
+  margin: 0;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.rabta-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.rabta-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%);
+
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.162);
+  font-family: 'Lexend Exa', sans-serif;
+}
+
+.rabta-btn:hover,
+.rabta-btn--hovered {
+  background: linear-gradient(
+    135deg,
+    rgba(129, 135, 92, 0.317) 0%,
+    rgba(54, 58, 38, 0.98) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55);
+}
+
+.rabta-btn:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+.rabta-btn-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rabta-btn-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #e8e8e0;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.rabta-footer-text {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.rabta-login-link {
+  color: #c0c0b8;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.18s ease;
+}
+
+.rabta-login-link:hover {
+  color: #ffffff;
+}
