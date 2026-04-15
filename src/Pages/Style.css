@@ -50,24 +50,23 @@ overflow-y: scroll;
 /* ── Container ───────────────────────────────────────────── */
 .rabta-container {
   position: relative;
-  z-index: 1;
   width: 100%;
   max-width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
-    background-image: url(../Assets/BG.svg);
+  background-image: url(../Assets/BG.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  pointer-events: none;
   padding-top: 330px;
   border-radius: 20px;
   padding-bottom: 20px;
   padding-left: 16px;
   padding-right: 16px;
   background-position: top;
-  opacity:1;
+  opacity: 1;
+  /* pointer-events: none; ← REMOVED */
 }
 
 /* ── Star ────────────────────────────────────────────────── */
@@ -182,6 +181,7 @@ background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153,
 /* ── Footer ──────────────────────────────────────────────── */
 .rabta-footer-text {
   font-size: 0.78rem;
+  height: 16px;
   font-weight: 400;
   color: #ffffff;
   letter-spacing: 0.04em;
@@ -197,5 +197,291 @@ background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153,
 }
 
 .rabta-login-link:hover {
+  color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700&display=swap');
+
+/* ── Root ─────────────────────────────────────────────── */
+.signin-root {
+  width: 440px;
+  min-height: 956px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  background: linear-gradient(0deg, rgba(253, 247, 78, 0.60) -84.5%, rgba(0, 0, 0, 0.00) 100%),
+              linear-gradient(0deg, #1E1E1E -2.57%, rgba(0, 0, 0, 0.38) 192.79%),
+              linear-gradient(180deg, #000 0%, #1E1E1E 100%);
+  font-family: 'Lexend Exa', sans-serif;
+  box-sizing: border-box;
+
+}
+
+/* ── Container ────────────────────────────────────────── */
+.signin-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  padding: 10px;
+padding-top: 280px;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: top;
+padding-bottom: 20px;
+justify-content: space-between;
+border-radius: 20px;
+box-shadow: #b0b0aa18;
+  background-image:url(../Assets/bg2.svg) ;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+.signin-header {
+  margin-bottom: 40px;
+}
+
+.signin-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #d8d8d0;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.signin-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #888880;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ── Form ─────────────────────────────────────────────── */
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Field ────────────────────────────────────────────── */
+.signin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.signin-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #ccccc4;
+  letter-spacing: 0.06em;
+}
+
+/* ── Input wrap ───────────────────────────────────────── */
+.signin-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.signin-input {
+  width: 100%;
+  padding: 18px 50px 18px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8e8e0;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.signin-input::placeholder {
+  color: #ffffff3b;
+}
+
+.signin-input:focus {
+  border-color: rgba(160, 170, 100, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Email valid checkmark ────────────────────────────── */
+.signin-check {
+  position: absolute;
+  right: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #c8d44a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Eye toggle ───────────────────────────────────────── */
+.signin-eye {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.signin-eye:hover {
+  opacity: 1;
+}
+
+/* ── Forgot ───────────────────────────────────────────── */
+.signin-forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+  margin-top: -8px;
+}
+
+.signin-forgot {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #aaaaaa;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.18s;
+}
+
+.signin-forgot:hover {
+  color: #ffffff;
+}
+
+/* ── Login button ─────────────────────────────────────── */
+.signin-btn {
+  width: 100%;
+  padding: 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(160, 170, 80, 0.3);
+  background: linear-gradient(180deg, #6b7a2e 0%, #4a5520 100%);
+  color: #f0f0e8;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.15s ease;
+  margin-bottom: 36px;
+  display: flex;
+padding: 12px 21px;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+flex: 1 0 0;
+background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 36, 0.60) 100%);
+
+  box-shadow: 0 4px 20px rgba(100, 120, 30, 0.25);
+}
+
+.signin-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.signin-btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* ── Divider ──────────────────────────────────────────── */
+.signin-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.signin-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.signin-divider-text {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #e8e8e0;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ── Social buttons ───────────────────────────────────── */
+.signin-social {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.signin-social-btn {
+  flex: 1;
+  padding: 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(80, 88, 40, 0.7) 0%, rgba(50, 58, 24, 0.85) 100%);
+  cursor: pointer;
+  display: flex;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%);
+
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+
+.signin-social-btn:hover {
+  filter: brightness(1.2);
+  transform: translateY(-1px);
+}
+
+.signin-social-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Footer ───────────────────────────────────────────── */
+.signin-footer-text {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #e8e8e0;
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin: 0;
+}
+
+.signin-signup-link {
+  color: #e8e8e0;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.signin-signup-link:hover {
   color: #ffffff;
 }
