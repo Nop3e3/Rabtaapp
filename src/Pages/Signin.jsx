@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Style.css";
 
 const EyeOffIcon = () => (
@@ -45,6 +45,7 @@ const AppleIcon = () => (
 );
 
 export default function Signin() {
+  const navigate = useNavigate(); // ✅ inside the component
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -53,91 +54,94 @@ export default function Signin() {
 
   return (
     <div className="body">
-    <div className="signin-root">
-      <div className="signin-container">
+      <div className="signin-root">
+        <div className="signin-container">
 
-        <div className="signin-header">
-          <h1 className="signin-title">Welcome Back</h1>
-          <p className="signin-subtitle">Log in</p>
-        </div>
-
-        <div className="signin-form">
-          {/* Email */}
-          <div className="signin-field">
-            <label className="signin-label">Email address</label>
-            <div className="signin-input-wrap">
-              <input
-                className="signin-input"
-                type="email"
-                placeholder="helloworld@gmail.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              {isEmailValid && (
-                <span className="signin-check">
-                  <CheckIcon />
-                </span>
-              )}
-            </div>
+          <div className="signin-header">
+            <h1 className="signin-title">Welcome Back</h1>
+            <p className="signin-subtitle">Log in</p>
           </div>
 
-          {/* Password */}
-          <div className="signin-field">
-            <label className="signin-label">Password</label>
-            <div className="signin-input-wrap">
-              <input
-                className="signin-input"
-                type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button
-                className="signin-eye"
-                onClick={() => setShowPassword((v) => !v)}
-                tabIndex={-1}
-              >
-                {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+          <div className="signin-form">
+            {/* Email */}
+            <div className="signin-field">
+              <label className="signin-label">Email address</label>
+              <div className="signin-input-wrap">
+                <input
+                  className="signin-input"
+                  type="email"
+                  placeholder="helloworld@gmail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                {isEmailValid && (
+                  <span className="signin-check">
+                    <CheckIcon />
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {/* Password */}
+            <div className="signin-field">
+              <label className="signin-label">Password</label>
+              <div className="signin-input-wrap">
+                <input
+                  className="signin-input"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  className="signin-eye"
+                  onClick={() => setShowPassword((v) => !v)}
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+                </button>
+              </div>
+            </div>
+
+            {/* Forgot */}
+            <div className="signin-forgot-row">
+              <a href="#" className="signin-forgot">Forgot password?</a>
+            </div>
+
+            {/* Login btn */}
+            <button className="signin-btn" onClick={() => navigate("/home")}>
+              Log in
+            </button>
+
+            {/* Divider */}
+            <div className="signin-divider">
+              <span className="signin-divider-line" />
+              <span className="signin-divider-text">Or Login with</span>
+              <span className="signin-divider-line" />
+            </div>
+
+            {/* Social buttons */}
+            <div className="signin-social">
+              <button className="signin-social-btn">
+                <FacebookIcon />
+              </button>
+              <button className="signin-social-btn">
+                <GoogleIcon />
+              </button>
+              <button className="signin-social-btn">
+                <AppleIcon />
               </button>
             </div>
           </div>
 
-          {/* Forgot */}
-          <div className="signin-forgot-row">
-            <a href="#" className="signin-forgot">Forgot password?</a>
-          </div>
+          {/* Footer */}
+          <p className="signin-footer-text">
+            Don't have an account?{" "}
+            <Link to="/" className="signin-signup-link">Sign up</Link>
+          </p>
 
-          {/* Login btn */}
-          <button className="signin-btn">Log in</button>
-
-          {/* Divider */}
-          <div className="signin-divider">
-            <span className="signin-divider-line" />
-            <span className="signin-divider-text">Or Login with</span>
-            <span className="signin-divider-line" />
-          </div>
-
-          {/* Social buttons */}
-          <div className="signin-social">
-            <button className="signin-social-btn">
-              <FacebookIcon />
-            </button>
-            <button className="signin-social-btn">
-              <GoogleIcon />
-            </button>
-            <button className="signin-social-btn">
-              <AppleIcon />
-            </button>
-          </div>
         </div>
-
-        {/* Footer */}
-        <p className="signin-footer-text">
-          Don't have an account?{" "}
-          <Link to="/" className="signin-signup-link">Sign up</Link>
-        </p>
-
       </div>
-    </div></div>
+    </div>
   );
 }

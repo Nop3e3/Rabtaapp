@@ -485,3 +485,35 @@ background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 3
 .signin-signup-link:hover {
   color: #ffffff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bodyy{
+  width: 440px;
+  min-height: 956px;
+  background: #1E1E1E;
+font-family: Lexend exa;
+color: #ffffff;
+overflow-y: scroll;
+
+}
