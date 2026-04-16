@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700&display=swap');
+
+/* ── Grid ─────────────────────────────────────────────────── */
+.qa-grid {
+  width: 100%;
+  max-width: 440px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 0 16px 16px;
+  box-sizing: border-box;
+  font-family: 'Lexend Exa', sans-serif;
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.qa-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  background: #1c1e18;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  background: linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%);
+
+  padding: 0 0 20px;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Lexend Exa', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  min-height: 210px;
+  position: relative;
+}
+
+.qa-card:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  background: #22261c;
+}
+
+.qa-card:active {
+  transform: scale(0.97);
+}
+
+/* ── Image area ───────────────────────────────────────────── */
+.qa-card-image {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px 12px;
+  box-sizing: border-box;
+}
+
+.qa-card-image img {
+  width: 100%;
+  max-width: 120px;
+  height: 110px;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* placeholder when no image */
+.qa-card-image:not(:has(img[src])) {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  margin: 12px;
+  width: calc(100% - 24px);
+}
+
+.qa-card:hover .qa-card-image img {
+  transform: scale(1.06) translateY(-3px);
+}
+
+/* ── Body ─────────────────────────────────────────────────── */
+.qa-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.qa-card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e8e8e0;
+  margin: 0;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+
+/* ── Skeleton loader ──────────────────────────────────────── */
+.qa-card--skeleton {
+  min-height: 210px;
+  background: linear-gradient(
+    90deg,
+    #1c1e18 25%,
+    #252720 50%,
+    #1c1e18 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes skeletonShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.qa-card-desc {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}

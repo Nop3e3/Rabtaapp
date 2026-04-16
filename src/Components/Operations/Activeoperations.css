@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+/* ════════════════════════════════════════════
+   SECTION
+════════════════════════════════════════════ */
+.ao-section {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Lexend Exa', sans-serif;
+}
+
+.ao-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ao-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #e8e8e0;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.ao-view-all {
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.ao-view-all:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  transform: scale(1.03);
+}
+
+.ao-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ════════════════════════════════════════════
+   OPERATION CARD
+════════════════════════════════════════════ */
+.op-card {
+  background: linear-gradient(160deg, #1c1e16 0%, #141610 100%);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+background: linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%);
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+.op-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.op-card:hover {
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+}
+
+/* ── Info block ───────────────────────────────────────────── */
+.op-card-info {
+  background: rgba(255,255,255,0.04);
+  border-radius: 18px;
+  margin: 10px 10px 0;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.op-card-supplier {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #e8e8e0;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.op-card-collection {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.op-card-tags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.op-tag {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+}
+
+.op-tag-dot {
+  font-size: 0.4rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1;
+}
+
+.op-status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 50px;
+  border: 1px solid #edfe8e4f;
+  background:#edfe8e1f;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #EDFE8E;
+  letter-spacing: 0.04em;
+  width: fit-content;
+}
+
+/* ── Progress section ─────────────────────────────────────── */
+.op-progress-section {
+  padding: 16px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Step labels row */
+.op-steps-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 2px;
+  min-height: 36px;
+}
+
+.op-step-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.op-step-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.op-step-item--done .op-step-label {
+  color: #EDFE8E;
+}
+
+/* Active pill label */
+.op-active-pill {
+  padding: 7px 16px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #6b7a2e 0%, #4a5520 100%);
+  color: #f0f0e0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: linear-gradient(180deg, rgba(237, 254, 142, 0.30) 0%, rgba(86, 94, 36, 0.30) 100%), rgba(0, 0, 0, 0.20);
+border-radius: 10.08px;
+
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(90, 110, 30, 0.043);
+  animation: pillFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes pillFloat {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-3px); }
+}
+
+/* Circle marker row */
+.op-marker-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.op-marker-slot {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+}
+
+.op-marker-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 4px solid #edfe8e6d;
+margin-bottom: 10px;
+margin-top: 10px;
+  background: transparent;
+  box-shadow: 0 0 8px rgba(180,200,80,0.5);
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(180,200,80,0.4); }
+  50%       { box-shadow: 0 0 14px rgba(180,200,80,0.8); }
+}
+
+/* Bars row */
+.op-bars-row {
+  display: flex;
+  gap: 6px;
+  padding: 0 2px;
+}
+
+.op-bar-wrap {
+  flex: 1;
+  height: 6px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.op-bar {
+  height: 100%;
+  border-radius: 50px;
+  width: 0%;
+  background: linear-gradient(90deg, #6b8a20 0%, #9aaa30 100%);
+  transition: width 0.7s cubic-bezier(0.34, 1.2, 0.64, 1);
+  background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 36, 0.60) 100%);
+
+}
+
+.op-bar--filled {
+  width: 100%;
+}
+
+/* ── CTA ──────────────────────────────────────────────────── */
+.op-cta {
+  margin: 0 12px 12px;
+  width: calc(100% - 24px);
+  padding: 18px;
+  border-radius: 50px;
+  border: 1px solid rgba(160,170,60,0.3);
+  background: linear-gradient(135deg, #5a6a20 0%, #3a4614 100%);
+  color: #f0f0e0;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 36, 0.60) 100%);
+
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 12px 40px;
+  transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(70,90,20,0.3);
+}
+
+.op-cta:hover {
+  filter: brightness(1.2);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(70,90,20,0.45);
+}
+
+.op-cta:active {
+  transform: scale(0.98);
+  filter: brightness(0.95);
+}

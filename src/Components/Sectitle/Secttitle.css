@@ -1,0 +1,53 @@
+.section-title {
+  display: flex;
+  align-items: center;
+ 
+color: #FFF;
+font-family: "Lexend Exa";
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+
+    margin: 0px;
+  padding: 0px;
+}
+
+.section-title--left {
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.section-title--center {
+  flex-direction: column;
+  text-align: center;
+  gap: 6px;
+}
+
+.section-title--between {
+  justify-content: space-between;
+}
+
+.section-title-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.section-title-sub {
+  font-size: 14px;
+  color: #777;
+  margin: 2px 0 0;
+}
+
+.section-title-action {
+  background: none;
+  border: none;
+  color: #6b8c2a;
+  font-weight: 500;
+  cursor: pointer;
+}
+h2{
+  margin: 0px;
+  padding: 0px;
+}

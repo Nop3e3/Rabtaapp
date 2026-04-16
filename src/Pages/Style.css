@@ -496,7 +496,10 @@ background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 3
 
 
 
-
+body{
+    padding: 0px;
+    margin: 0px;
+}
 
 
 
@@ -510,10 +513,42 @@ background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 3
 
 .bodyy{
   width: 440px;
-  min-height: 956px;
+  height: 956px;
   background: #1E1E1E;
 font-family: Lexend exa;
 color: #ffffff;
 overflow-y: scroll;
+padding-bottom: 200px;
+
+}
+
+.Sec{
+  display: flex;
+  flex-direction: column;
+margin-top: 20px;
+  width: 400px;
+  height: fit-content;
+  margin-bottom: 16px;
+  overflow-x: visible;
+  justify-self: center;
+}
+.Secc{
+  display: flex;
+  flex-direction: column;
+margin-top: 20px;
+align-items: center;
+  margin-bottom: 16px;
+
+  width: 440px;
+  overflow-x: visible;
+  justify-self: center;
+}
+.ttll{
+  display: flex;
+  margin-bottom: 16px;
+  flex-direction: row;
+  width: 400px;
+
+  justify-content: space-between; 
 
 }

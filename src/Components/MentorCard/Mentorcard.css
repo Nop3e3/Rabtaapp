@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+/* ── Card ─────────────────────────────────────────────────── */
+.mc-card {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  background: #1a1c16;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-family: 'Lexend Exa', sans-serif;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+  animation: mcFadeIn 0.4s ease both;
+}
+
+@keyframes mcFadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.mc-card:hover {
+  border-color: rgba(255,255,255,0.11);
+  box-shadow: 0 10px 36px rgba(0,0,0,0.55);
+}
+
+/* ── Top row ──────────────────────────────────────────────── */
+.mc-top {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+/* ── Avatar ───────────────────────────────────────────────── */
+.mc-avatar-wrap {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(212, 200, 74, 0.35);
+  box-shadow: 0 0 0 3px rgba(212,200,74,0.1);
+}
+
+.mc-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mc-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #4a5520 0%, #2e3614 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #d0d8a0;
+}
+
+/* ── Info ─────────────────────────────────────────────────── */
+.mc-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mc-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mc-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.mc-title {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.mc-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mc-review-count {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.03em;
+}
+
+.mc-stars {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.mc-dot {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.6rem;
+}
+
+.mc-sessions {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.03em;
+}
+
+/* ── Specialties ──────────────────────────────────────────── */
+.mc-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mc-tag {
+  padding: 7px 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+  cursor: default;
+}
+
+.mc-tag:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* ── Meta ─────────────────────────────────────────────────── */
+.mc-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mc-meta-text {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+}
+
+.mc-meta-dot {
+  color: rgba(255,255,255,0.25);
+  font-size: 0.6rem;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.mc-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mc-btn {
+  width: 100%;
+  padding: 17px;
+  border-radius: 50px;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+/* Secondary — "Know more" */
+.mc-btn--secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #e8e8e0;
+}
+
+.mc-btn--secondary:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+/* Primary — "Book a Session" */
+.mc-btn--primary {
+  background: linear-gradient(135deg, #6b7a2e 0%, #4a5520 100%);
+  border: 1px solid rgba(160,170,60,0.3);
+  color: #f0f0e0;
+  box-shadow: 0 4px 18px rgba(80,100,20,0.3);
+}
+
+.mc-btn--primary:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(80,100,20,0.45);
+}
+
+.mc-btn--pressed {
+  transform: scale(0.98) !important;
+  filter: brightness(0.95) !important;
+}

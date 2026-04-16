@@ -1,0 +1,56 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease;
+}
+
+/* PRIMARY */
+.btn--primary {
+  background: #6b8c2a;
+  color: white;
+}
+
+.btn--primary:hover {
+  opacity: 0.9;
+}
+
+/* SECONDARY */
+.btn--secondary {
+  background: #eaeaea;
+  color: #333;
+}
+
+/* GHOST */
+.btn--ghost {
+  background: transparent;
+border-radius: 32px;
+width: fit-content;
+color: #FFF;
+text-align: center;
+font-family: "Lexend Exa";
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 184.615% */
+letter-spacing: -0.026px;
+border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+/* DISABLED */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+}
