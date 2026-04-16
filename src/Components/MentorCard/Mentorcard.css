@@ -173,7 +173,7 @@
 .mc-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .mc-btn {
@@ -185,11 +185,15 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   cursor: pointer;
+  background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 36, 0.60) 100%);
+
   transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 /* Secondary — "Know more" */
 .mc-btn--secondary {
+    padding: 12px 40px;
+
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
   color: #e8e8e0;
@@ -207,6 +211,10 @@
   border: 1px solid rgba(160,170,60,0.3);
   color: #f0f0e0;
   box-shadow: 0 4px 18px rgba(80,100,20,0.3);
+  background: linear-gradient(180deg, rgba(237, 254, 142, 0.60) 0%, rgba(86, 94, 36, 0.60) 100%);
+border: 1px solid #F5FFC1;
+padding: 12px 40px;
+
 }
 
 .mc-btn--primary:hover {

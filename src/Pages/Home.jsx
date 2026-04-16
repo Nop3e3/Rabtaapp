@@ -11,8 +11,8 @@ import SectionTitle from "../Components/Sectitle/Secttitle";
 import Viewall from "../Components/Viewall/Viewall";
 import Coursesec from "../Components/Coursescards/Coursesec";
 import Postcard from "../Components/Postcard/Postcard";
+import Mentorcard from "../Components/MentorCard/Mentorcard";
 
-// helper — finds a key regardless of apostrophe encoding
 function getKey(obj, name) {
   if (!obj) return undefined;
   if (obj[name] !== undefined) return obj[name];
@@ -26,6 +26,7 @@ function getKey(obj, name) {
 function Home() {
   const [userData, setUserData] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [mentors, setMentors] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,7 +37,6 @@ function Home() {
           .select("*")
           .eq("id", 1)
           .single();
-
         if (userError) throw userError;
         setUserData(user);
 
@@ -44,15 +44,23 @@ function Home() {
           .from("community")
           .select("*")
           .eq("id", 1);
-
         if (communityError) throw communityError;
+        setPosts(community || []);
 
-        if (community?.length) {
-          console.log("Community keys:", Object.keys(community[0]));
-          console.log("Community row:", community[0]);
+        const { data: mentorData, error: mentorError } = await supabase
+          .from("find a mentor")
+          .select("*")
+          .gte("id", 1)
+          .lte("id", 3);
+        if (mentorError) throw mentorError;
+
+        if (mentorData?.length) {
+          console.log("Mentor keys:", Object.keys(mentorData[0]));
+          console.log("Mentor row:", mentorData[0]);
         }
 
-        setPosts(community || []);
+        setMentors(mentorData || []);
+
       } catch (err) {
         console.error("Fetch failed:", err.message);
       } finally {
@@ -153,6 +161,56 @@ function Home() {
             ))}
           </div>
         </div>
+
+        {mentors.length > 0 && (
+          <div className="Sec">
+            <div className="ttll">
+              <SectionTitle title="Mentorship" />
+              <Viewall text="View all" variant="ghost" />
+            </div>
+            <div className="posts-list">
+              {mentors.map((mentor) => (
+                <Mentorcard
+                  key={mentor.id}
+                  name={
+                    getKey(mentor, "Featured_mentors1") ||
+                    getKey(mentor, "Mentors_name") ||
+                    ""
+                  }
+                  avatar={
+                    getKey(mentor, "mentor's_pfp") ||
+                    getKey(mentor, "mentor\u2019s_pfp") ||
+                    ""
+                  }
+                  title={
+                    getKey(mentor, "Mentor's_specialization1") ||
+                    getKey(mentor, "Mentor\u2019s_specialization1") ||
+                    getKey(mentor, "Mentor's_specialization") ||
+                    ""
+                  }
+                  reviewCount={
+                    getKey(mentor, "featured_mentor's Rating number1") ||
+                    getKey(mentor, "featured_mentor\u2019s Rating number1") ||
+                    0
+                  }
+                  rating={
+                    Number(
+                      getKey(mentor, "featured_mentor's Rating number1") ||
+                      getKey(mentor, "featured_mentor\u2019s Rating number1")
+                    ) || 5
+                  }
+                  sessions={mentor["Number_ of_clients1"] ?? 0}
+                  specialties={[
+                    mentor["Tag1"],
+                    mentor["Tag2"],
+                  ].filter(Boolean)}
+                  responseTime="2 hours"
+                  experience=""
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         <Navbarr />
       </div>

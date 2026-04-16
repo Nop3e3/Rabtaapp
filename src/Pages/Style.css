@@ -525,7 +525,7 @@ padding-bottom: 200px;
 .Sec{
   display: flex;
   flex-direction: column;
-margin-top: 20px;
+margin-top: 3git0px;
   width: 400px;
   height: fit-content;
   margin-bottom: 16px;
@@ -535,7 +535,7 @@ margin-top: 20px;
 .Secc{
   display: flex;
   flex-direction: column;
-margin-top: 20px;
+margin-top: 30px;
 align-items: center;
   margin-bottom: 16px;
 
@@ -551,4 +551,10 @@ align-items: center;
 
   justify-content: space-between; 
 
+}
+
+.posts-list{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }
