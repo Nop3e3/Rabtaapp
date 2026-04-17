@@ -653,3 +653,37 @@ align-items: center;
   gap: 8px;
   margin-top: 4px;
 }
+
+.welcomebck{
+  color: #FFF;
+
+font-family: "Lexend Exa";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.lesson{
+  color: #FFF;
+margin-top: 10px;
+font-family: "Lexend Exa";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.lessonname{
+  color: #FFF;
+font-family: "Lexend Exa";
+font-size: 16px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+margin-top: 10px;
+text-decoration-line: underline;
+text-decoration-style: solid;
+text-decoration-skip-ink: auto;
+text-decoration-thickness: auto;
+text-underline-offset: auto;
+text-underline-position: from-font;
+}

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+/* ── Card ─────────────────────────────────────────────────── */
+.cl-card {
+  width: 100%;
+
+  box-sizing: border-box;
+  background: #16181200;
+  background: var(--yellow-sections-background, linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%));
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  font-family: 'Lexend Exa', sans-serif;
+  padding: 16px 12px;
+
+border-radius: 24px;
+
+}
+
+/* ── Item ─────────────────────────────────────────────────── */
+.cl-item {
+  display: flex;
+  align-items: center;
+  
+
+  gap: 14px;
+  padding: 18px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(135deg, #1e201a 0%, #191b15 100%);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  animation: clItemIn 0.35s ease both;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@keyframes clItemIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.cl-item:hover {
+  background: linear-gradient(135deg, #242620 0%, #1e201a 100%);
+  border-color: rgba(255,255,255,0.13);
+  transform: translateY(-1px);
+}
+
+.cl-item:active {
+  transform: scale(0.99);
+}
+
+.cl-item--checked {
+  border-color: rgba(107,140,42,0.3);
+  background: linear-gradient(135deg, #1e2418 0%, #171a12 100%);
+}
+
+/* ── Checkbox ─────────────────────────────────────────────── */
+.cl-checkbox {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cl-checkbox--checked {
+  background: #6b7a2e;
+  border-color: rgba(160,180,60,0.4);
+  transform: scale(1.08);
+}
+
+/* ── Label ────────────────────────────────────────────────── */
+.cl-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.cl-label-underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255,255,255,0.4);
+}
+
+.cl-sublabel {
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+}
+
+.cl-item--checked .cl-label {
+  color: rgba(255,255,255,0.45);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.25);
+}
+
+.cl-item--checked .cl-label-underline {
+  text-decoration: line-through;
+}
