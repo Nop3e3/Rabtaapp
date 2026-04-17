@@ -3,6 +3,7 @@ import Signup from "./Pages/Signup";
 import Signin from "./Pages/Signin"
 import InternalSupplier from "./Pages/InteralSupplierpage"
 import Home from "./Pages/Home";
+import Messages from "./Pages/Messages"
 
 import Suppliers from "./Pages/Suppliers";
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Signup/>} />
        <Route path="/InternalSupplier" element={<InternalSupplier/>} />
+              <Route path="/Messages" element={<Messages/>} />
       <Route path="/Suppliers" element={<Suppliers/>} />
       <Route path="/home" element={<Home/>} />
       <Route path="/Signin" element={<Signin/>} />
