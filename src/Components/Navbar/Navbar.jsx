@@ -8,11 +8,11 @@ import Home from "../../Assets/diversity_3.svg";
 import Personraisinghand from "../../Assets/person_raised_hand.svg";
 
 const NAV_ITEMS = [
-  { id: "library", label: "Learning Hub", icon: Book,             path: "/LearningHub" },
+  { id: "library", label: "Learning", icon: Book,             path: "/LearningHub" },
   { id: "orders",  label: "Suppliers",  icon: box,              path: "/Suppliers"  },
   { id: "home",    label: "Home",    icon: Diversity,        path: "/Home"    },
-  { id: "team",    label: "Team",    icon: Home,             path: "/team"    },
-  { id: "prayer",  label: "Prayer",  icon: Personraisinghand, path: "/prayer" },
+  { id: "team",    label: "Community",    icon: Home,             path: "/team"    },
+  { id: "prayer",  label: "Mentorship",  icon: Personraisinghand, path: "/prayer" },
 ];
 
 export default function BottomNav() {
