@@ -16,6 +16,7 @@ background: linear-gradient(0deg, #141414 10.5%, #2C2A32 85.24%);
   font-family: 'Lexend Exa', sans-serif;
   box-shadow: 0 6px 28px rgba(0,0,0,0.45);
   animation: cc2FadeIn 0.4s ease both;
+  margin-top: 20px;
 }
 
 @keyframes cc2FadeIn {
