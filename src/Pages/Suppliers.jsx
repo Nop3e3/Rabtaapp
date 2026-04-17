@@ -13,7 +13,6 @@ import Pagination from "../Components/Pagination/Pagination"
 
 
 
-
 function getKey(obj, name) {
   if (!obj) return undefined;
   if (obj[name] !== undefined) return obj[name];
@@ -89,7 +88,7 @@ function Suppliers() {
 
         <div className="Sec">
           <SectionTitle
-            title="Quick Actions"
+            title="Suppliers"
             subtitle="Discover elite, verified suppliers in the region to build your next collection."
           />
         </div>

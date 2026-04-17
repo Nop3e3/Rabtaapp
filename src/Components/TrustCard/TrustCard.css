@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+/* ── Card ─────────────────────────────────────────────────── */
+.tc-card {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  background: #1a1c16;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 22px 18px;
+  background: var(--yellow-sections-background, linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%));
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-family: 'Lexend Exa', sans-serif;
+  animation: tcFadeIn 0.4s ease both;
+}
+
+@keyframes tcFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.tc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tc-header-icon {
+  display: flex;
+  align-items: center;
+  color: #f0f0e8;
+}
+
+.tc-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* ── List ─────────────────────────────────────────────────── */
+.tc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Trust item ───────────────────────────────────────────── */
+.ti-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ti-item:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.13);
+}
+
+.ti-icon {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.8);
+  margin-top: 1px;
+  transition: color 0.2s;
+}
+
+.ti-item:hover .ti-icon {
+  color: #c8d44a;
+}
+
+.ti-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ti-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.ti-desc {
+  font-size: 0.73rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
