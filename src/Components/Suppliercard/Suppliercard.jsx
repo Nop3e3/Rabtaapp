@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Suppliercard.css";
 import Button from "../Buttons/button";
-import trophy from"../../Assets/rewarded_ads.svg";
+
 const HeartIcon = ({ filled }) => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill={filled ? "#e05555" : "none"} stroke={filled ? "#e05555" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -59,28 +59,16 @@ const MessageIcon = () => (
 );
 
 export default function SupplierCard({
-  image,
-  name,
-  rating,
-  reviewCount,
-  role = "Supplier",
-  location,
-  memberSince,
-  specialization,
-  priceRange,
-  projects,
-  tags = [],
-  minOrder,
-  leadTime,
-  available = true,
-  onMessage,
-  onRequestQuote,
+  image, name, rating, reviewCount, role = "Supplier",
+  location, memberSince, specialization, priceRange, projects,
+  tags = [], minOrder, leadTime, available = true,
+  onMessage, onRequestQuote, onClick,
 }) {
   const [saved, setSaved] = useState(false);
 
   return (
-    <div className="sc-card">
-      {/* ── Cover image ── */}
+    <div className="sc-card" onClick={onClick} style={{ cursor: onClick ? "pointer" : "default" }}>
+
       <div className="sc-image-wrap">
         {image
           ? <img src={image} alt={name} className="sc-image" />
@@ -88,21 +76,18 @@ export default function SupplierCard({
         }
       </div>
 
-      {/* ── Body ── */}
       <div className="sc-body">
-<div className="tops">
-        {/* Name + save */}
+
         <div className="sc-name-row">
           <h2 className="sc-name">{name}</h2>
           <button
             className={`sc-save-btn ${saved ? "sc-save-btn--saved" : ""}`}
-            onClick={() => setSaved((v) => !v)}
+            onClick={(e) => { e.stopPropagation(); setSaved((v) => !v); }}
           >
             <HeartIcon filled={saved} />
           </button>
         </div>
 
-        {/* Rating */}
         <div className="sc-rating-row">
           <svg viewBox="0 0 24 24" width="16" height="16">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#d4c84a" stroke="#d4c84a" strokeWidth="1"/>
@@ -111,31 +96,25 @@ export default function SupplierCard({
           <span className="sc-rating-count">({reviewCount})</span>
         </div>
 
-        {/* Role pill */}
         <div className="sc-role-pill">
-          <img src={trophy}alt="" />
+          <TrophyIcon />
           <span>{role}</span>
         </div>
 
-        {/* Location + member since */}
         <div className="sc-location-row">
           <LocationIcon />
           <span className="sc-location">{location}</span>
         </div>
         <p className="sc-member">Member since {memberSince}</p>
 
-        {/* Specialization */}
         {specialization && (
           <p className="sc-specialization">
-            Specialized in{" "}
-            <span className="sc-specialization-link">{specialization}</span>
+            Specialized in <span className="sc-specialization-link">{specialization}</span>
           </p>
         )}
-</div>
-        {/* Divider */}
+
         <div className="sc-divider" />
 
-        {/* Price + projects */}
         <div className="sc-stats">
           <div className="sc-stat-row">
             <PriceIcon />
@@ -149,7 +128,6 @@ export default function SupplierCard({
           </div>
         </div>
 
-        {/* Tags */}
         {tags.length > 0 && (
           <div className="sc-tags">
             {tags.map((tag) => (
@@ -158,7 +136,6 @@ export default function SupplierCard({
           </div>
         )}
 
-        {/* Min order + lead time */}
         <div className="sc-details">
           {minOrder && (
             <div className="sc-detail-row">
@@ -174,30 +151,23 @@ export default function SupplierCard({
           )}
         </div>
 
-        {/* Availability */}
         <div className={`sc-availability ${available ? "sc-availability--on" : "sc-availability--off"}`}>
           <span className="sc-availability-dot" />
           <span>{available ? "Available now" : "Unavailable"}</span>
         </div>
 
-        {/* Buttons */}
         <div className="sc-buttons">
           <Button
-            text={
-              <span className="sc-msg-content">
-                <MessageIcon />
-                Message
-              </span>
-            }
+            text={<span className="sc-msg-content"><MessageIcon />Message</span>}
             variant="secondary"
             size="large"
-            onClick={onMessage}
+            onClick={(e) => { e.stopPropagation(); onMessage?.(e); }}
           />
           <Button
             text="Request a Quote"
             variant="primary"
             size="large"
-            onClick={onRequestQuote}
+            onClick={(e) => { e.stopPropagation(); onRequestQuote?.(e); }}
           />
         </div>
 

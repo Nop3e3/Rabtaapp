@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Style.css";
 import Topbar from "../Components/Topbar/Topbar";
 import Navbarr from "../Components/Navbar/Navbar";
@@ -8,10 +9,7 @@ import SectionTitle from "../Components/Sectitle/Secttitle";
 import FilterChip from "../Components/Chips/FilterChip";
 import Button from "../Components/Buttons/button";
 import Suppliercard from "../Components/Suppliercard/Suppliercard";
-import Pagination from "../Components/Pagination/Pagination"
-
-
-
+import Pagination from "../Components/Pagination/Pagination";
 
 function getKey(obj, name) {
   if (!obj) return undefined;
@@ -28,6 +26,7 @@ function getKey(obj, name) {
 function Suppliers() {
   const [suppliers, setSuppliers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -36,11 +35,6 @@ function Suppliers() {
           .from("Supplier Detail Page eng")
           .select("*");
         if (supplierError) throw supplierError;
-
-        if (supplierData?.length) {
-          console.log("Supplier keys:", Object.keys(supplierData[0]));
-        }
-
         setSuppliers(supplierData || []);
       } catch (err) {
         console.error("Fetch failed:", err.message);
@@ -110,11 +104,12 @@ function Suppliers() {
           {suppliers.map((supplier) => (
             <Suppliercard
               key={supplier.id}
-              image={
-          
-                supplier.suppliers_pfp ||
-                null
+              onClick={() =>
+                supplier.id === 2
+                  ? navigate("/InternalSupplier")
+                  : navigate(`/supplier/${supplier.id}`)
               }
+              image={supplier.suppliers_pfp || null}
               name={
                 getKey(supplier, "supplier's_name") ||
                 getKey(supplier, "supplier\u2019s_name") ||
@@ -139,16 +134,21 @@ function Suppliers() {
               minOrder={supplier["MOQ"] || ""}
               leadTime={supplier["Lead Time"] || ""}
               available={true}
-              onMessage={() => console.log("message", supplier.id)}
-              onRequestQuote={() => console.log("quote", supplier.id)}
+              onMessage={(e) => {
+                e.stopPropagation();
+                console.log("message", supplier.id);
+              }}
+              onRequestQuote={(e) => {
+                e.stopPropagation();
+                console.log("quote", supplier.id);
+              }}
             />
           ))}
         </div>
-<Pagination/>
 
+        <Pagination />
 
-
- <div className="spacedown"></div>
+        <div className="spacedown" />
         <Navbarr />
       </div>
     </div>
