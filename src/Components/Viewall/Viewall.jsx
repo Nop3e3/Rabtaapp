@@ -12,7 +12,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`btn btn--${variant}`}
+      className={`btnn btnn--${variant}`}
       onClick={onClick}
       disabled={disabled}
     >

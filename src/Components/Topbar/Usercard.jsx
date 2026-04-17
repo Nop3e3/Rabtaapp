@@ -1,5 +1,6 @@
 import React from "react";
 import "./Topbar.css";
+import trophy from"../../Assets/rewarded_ads.svg";
 
 const TrophyIcon = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#B6F193" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -43,8 +44,7 @@ export default function UserCard({
 
         <div className="usercard-meta">
           <span className="usercard-role">
-            <RoleIcon />
-            {role}
+<img src={trophy}alt="" />            {role}
           </span>
 
           <span className="usercard-dot">•</span>

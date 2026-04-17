@@ -44,6 +44,7 @@ export default function MentorCard({
   return (
     <div className="mc-card">
       {/* ── Top info ── */}
+     
       <div className="mc-top">
         <div className="mc-avatar-wrap">
           {avatar

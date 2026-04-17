@@ -9,7 +9,6 @@ background: linear-gradient(0deg, rgba(253, 247, 78, 0.60) -84.5%, rgba(0, 0, 0,
 stroke-width: 1px;
 
 
-
   position: relative;
 
 overflow-y: scroll;
@@ -203,7 +202,10 @@ background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153,
 
 
 
-
+.spacedown{
+  width: 100%;
+  height:100px;
+}
 
 
 
@@ -226,6 +228,87 @@ background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153,
   box-sizing: border-box;
 
 }
+
+/* ── Loading screen ─────────────────────────────────────── */
+.home-loading {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0e0f0a 0%, #1a1c14 100%);
+}
+
+.home-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: loadingFadeIn 0.5s ease both;
+}
+
+@keyframes loadingFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.home-loading-logo {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-loading-star {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.3));
+  animation: starSpin 2.5s ease-in-out infinite;
+}
+
+@keyframes starSpin {
+  0%   { transform: rotate(0deg)  scale(1);    opacity: 0.7; }
+  50%  { transform: rotate(20deg) scale(1.12); opacity: 1;   }
+  100% { transform: rotate(0deg)  scale(1);    opacity: 0.7; }
+}
+
+.home-loading-text {
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.18em;
+  margin: 0;
+}
+
+.home-loading-bar-track {
+  width: 120px;
+  height: 3px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.home-loading-bar-fill {
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #6b7a2e, #b8c840, #6b7a2e);
+  background-size: 200% 100%;
+  animation: barSlide 1.6s ease-in-out infinite;
+}
+
+@keyframes barSlide {
+  0%   { background-position: 200% 0; width: 40%;  }
+  50%  { background-position: 0% 0;   width: 70%;  }
+  100% { background-position: -200% 0; width: 40%; }
+}
+
+
+
+
+
+
 
 /* ── Container ────────────────────────────────────────── */
 .signin-container {
@@ -518,14 +601,20 @@ body{
 font-family: Lexend exa;
 color: #ffffff;
 overflow-y: scroll;
-padding-bottom: 200px;
+
+
+}
+.results{
+  color: rgba(255, 255, 255, 0.36);
+
+font-size: 14px;
 
 }
 
 .Sec{
   display: flex;
   flex-direction: column;
-margin-top: 3git0px;
+margin-top: 30px;
   width: 400px;
   height: fit-content;
   margin-bottom: 16px;
@@ -557,4 +646,10 @@ align-items: center;
   display: flex;
   gap: 20px;
   flex-direction: column;
+}
+.filter{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 4px;
 }

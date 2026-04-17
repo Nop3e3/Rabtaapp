@@ -11,6 +11,9 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%);
+
+
   gap: 18px;
   font-family: 'Lexend Exa', sans-serif;
   box-shadow: 0 6px 28px rgba(0,0,0,0.45);
@@ -31,6 +34,11 @@
 .mc-top {
   display: flex;
   gap: 14px;
+  background: #1E1E1E;
+padding: 21px 17px;
+border-radius: 8px;
+
+
   align-items: flex-start;
 }
 

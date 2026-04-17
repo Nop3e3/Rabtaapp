@@ -9,8 +9,8 @@ import Personraisinghand from "../../Assets/person_raised_hand.svg";
 
 const NAV_ITEMS = [
   { id: "library", label: "Library", icon: Book,             path: "/library" },
-  { id: "orders",  label: "Orders",  icon: box,              path: "/orders"  },
-  { id: "home",    label: "Home",    icon: Diversity,        path: "/home"    },
+  { id: "orders",  label: "Suppliers",  icon: box,              path: "/Suppliers"  },
+  { id: "home",    label: "Home",    icon: Diversity,        path: "/Home"    },
   { id: "team",    label: "Team",    icon: Home,             path: "/team"    },
   { id: "prayer",  label: "Prayer",  icon: Personraisinghand, path: "/prayer" },
 ];

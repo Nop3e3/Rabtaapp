@@ -1,4 +1,4 @@
-.btn {
+.btnn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -12,24 +12,8 @@
   transition: 0.2s ease;
 }
 
-/* PRIMARY */
-.btn--primary {
-  background: #6b8c2a;
-  color: white;
-}
-
-.btn--primary:hover {
-  opacity: 0.9;
-}
-
-/* SECONDARY */
-.btn--secondary {
-  background: #eaeaea;
-  color: #333;
-}
-
 /* GHOST */
-.btn--ghost {
+.btnn--ghost {
   background: transparent;
 border-radius: 32px;
 width: fit-content;

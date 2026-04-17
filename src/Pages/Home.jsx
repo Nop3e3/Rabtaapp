@@ -71,16 +71,25 @@ function Home() {
     fetchAll();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="body">
-        <div className="home-loading">
-          <div className="home-loading-spinner" />
+if (loading) {
+  return (
+    <div className="body">
+      <div className="home-loading">
+        <div className="home-loading-content">
+          <div className="home-loading-logo">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="home-loading-star">
+              <path d="M20 0 L22.5 17.5 L40 20 L22.5 22.5 L20 40 L17.5 22.5 L0 20 L17.5 17.5 Z" fill="white"/>
+            </svg>
+          </div>
+          <p className="home-loading-text">Rabta</p>
+          <div className="home-loading-bar-track">
+            <div className="home-loading-bar-fill" />
+          </div>
         </div>
       </div>
-    );
-  }
-
+    </div>
+  );
+}
   return (
     <div className="body">
       <div className="bodyy">
@@ -97,7 +106,7 @@ function Home() {
         )}
 
         <div className="Sec">
-          <SectionTitle title="Quick Actions" />
+          <SectionTitle title="Quick Actions"  />
           <Qa />
         </div>
 
@@ -209,6 +218,7 @@ function Home() {
                 />
               ))}
             </div>
+            <div className="spacedown"></div>
           </div>
         )}
 
