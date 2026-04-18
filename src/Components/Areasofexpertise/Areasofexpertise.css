@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+.aoe-card {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  background: var(--yellow-sections-background, linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%));
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: 'Lexend Exa', sans-serif;
+  animation: aoeFadeIn 0.4s ease both;
+}
+
+@keyframes aoeFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.aoe-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.aoe-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aoe-tag {
+  width: 100%;
+   padding-top:  18px;
+    padding-bottom:  18px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.04em;
+  text-align: center;
+  cursor: default;
+  transition: background 0.2s, color 0.2s;
+}
+
+.aoe-tag:hover {
+  background: rgba(255,255,255,0.09);
+  color: #fff;
+}

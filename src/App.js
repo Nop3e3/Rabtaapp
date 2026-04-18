@@ -8,13 +8,14 @@ import Home from "./Pages/Home";
 import Mentor from "./Pages/Mentors";
 import Messages from "./Pages/Messages";
 import Suppliers from "./Pages/Suppliers";
-
+import MentorInternal from "./Pages/MentorInternalpage";
 function App() {
   return (
     <Routes>
       <Route path="/"                element={<Signup />}           />
       <Route path="/Signin"          element={<Signin />}           />
       <Route path="/home"            element={<Home />}             />
+      <Route path="/MentorInternal"            element={<MentorInternal />}             />
       <Route path="/Mentors"            element={<Mentor/>}             />
       <Route path="/Suppliers"       element={<Suppliers />}        />
       <Route path="/InternalSupplier"element={<InternalSupplier />} />

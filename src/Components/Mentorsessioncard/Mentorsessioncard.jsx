@@ -1,7 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Mentorsessioncard.css";
 import Button from "../Buttons/button";
-
 const BadgeIcon = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#d4c84a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="8" r="6"/>
@@ -25,25 +25,6 @@ const VideoIcon = () => (
   </svg>
 );
 
-function StarRating({ rating = 5, count }) {
-  return (
-    <div className="msc-rating-row">
-      {count && <span className="msc-review-count">({count})</span>}
-      {[1,2,3,4,5].map((i) => (
-        <svg key={i} viewBox="0 0 24 24" width="20" height="20">
-          <polygon
-            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-            fill={i <= rating ? "#d4c84a" : "rgba(255,255,255,0.15)"}
-            stroke={i <= rating ? "#d4c84a" : "rgba(255,255,255,0.15)"}
-            strokeWidth="1"
-          />
-        </svg>
-      ))}
-      {count && <span className="msc-sessions-count">· {count} sessions</span>}
-    </div>
-  );
-}
-
 export default function MentorSessionCard({
   avatar,
   name,
@@ -51,16 +32,20 @@ export default function MentorSessionCard({
   reviewCount = 124,
   rating = 5,
   sessions = 340,
-  topic,
   topicText,
   sessionDate,
   sessionType = "Video Call",
   sessionDuration = "60 minutes",
   onReschedule,
 }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="msc-card">
-      {/* ── Header ── */}
+    <div
+      className="msc-card"
+      onClick={() => navigate("/MentorInternal")}
+      style={{ cursor: "pointer" }}
+    >
       <div className="msc-header">
         <div className="msc-avatar-wrap">
           {avatar
@@ -92,13 +77,11 @@ export default function MentorSessionCard({
         </div>
       </div>
 
-      {/* ── Topic ── */}
       <div className="msc-topic-section">
         <h4 className="msc-topic-label">Topic</h4>
         <p className="msc-topic-text">{topicText}</p>
       </div>
 
-      {/* ── Session details ── */}
       <div className="msc-details">
         <div className="msc-detail-row">
           <CalendarIcon />
@@ -110,13 +93,15 @@ export default function MentorSessionCard({
         </div>
       </div>
 
-      {/* ── Button ── */}
       <div className="msc-btn-wrap">
         <Button
           text="Reschedule"
           variant="secondary"
           size="large"
-          onClick={onReschedule}
+          onClick={(e) => {
+            e.stopPropagation();
+            onReschedule?.();
+          }}
         />
       </div>
     </div>

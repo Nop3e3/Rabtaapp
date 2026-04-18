@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from "react";
 import "./Style.css";
+
 import Topbar from "../Components/Topbar/Topbar";
 import Navbarr from "../Components/Navbar/Navbar";
 import { supabase } from "./Supabase";
+
 import SectionTitle from "../Components/Sectitle/Secttitle";
 import Viewall from "../Components/Viewall/Viewall";
+
 import Mentorcard from "../Components/MentorCard/Mentorcard";
 import Mentorsesh from "../Components/Mentorsessioncard/Mentorsessioncard";
+
 import Browserexpertise from "../Components/Browseexpertise/Browseexpertise";
 import HIW from "../Components/Howitworks/Howitworks";
-import MentorChips from "../Components/Chips/c"
+
+// ⚠️ make sure this path is correct in your project
+import MentorChips from "../Components/Chips/c";
+
 function getKey(obj, name) {
   if (!obj) return undefined;
   if (obj[name] !== undefined) return obj[name];
+
   const lower = name.toLowerCase();
   const found = Object.keys(obj).find(
-    (k) => k.toLowerCase().replace(/['''`]/g, "'") === lower.replace(/['''`]/g, "'")
+    (k) =>
+      k.toLowerCase().replace(/['''`]/g, "'") ===
+      lower.replace(/['''`]/g, "'")
   );
+
   return found ? obj[found] : undefined;
 }
 
@@ -28,6 +39,7 @@ function Mentors() {
   useEffect(() => {
     const fetchAll = async () => {
       try {
+        // ✅ Fetch session mentor
         const { data: sessionData, error: sessionError } = await supabase
           .from("find a mentor")
           .select("*")
@@ -36,12 +48,9 @@ function Mentors() {
 
         if (sessionError) throw sessionError;
 
-        if (sessionData) {
-          console.log("Session mentor keys:", Object.keys(sessionData));
-        }
-
         setSessionMentor(sessionData);
 
+        // ✅ Fetch featured mentors
         const { data: mentorData, error: mentorError } = await supabase
           .from("find a mentor")
           .select("*")
@@ -49,8 +58,8 @@ function Mentors() {
           .lte("id", 3);
 
         if (mentorError) throw mentorError;
-        setMentors(mentorData || []);
 
+        setMentors(mentorData || []);
       } catch (err) {
         console.error("Fetch failed:", err.message);
       } finally {
@@ -61,17 +70,28 @@ function Mentors() {
     fetchAll();
   }, []);
 
+  // 🔄 Loading state
   if (loading) {
     return (
       <div className="body">
         <div className="home-loading">
           <div className="home-loading-content">
             <div className="home-loading-logo">
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="home-loading-star">
-                <path d="M20 0 L22.5 17.5 L40 20 L22.5 22.5 L20 40 L17.5 22.5 L0 20 L17.5 17.5 Z" fill="white"/>
+              <svg
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="home-loading-star"
+              >
+                <path
+                  d="M20 0 L22.5 17.5 L40 20 L22.5 22.5 L20 40 L17.5 22.5 L0 20 L17.5 17.5 Z"
+                  fill="white"
+                />
               </svg>
             </div>
+
             <p className="home-loading-text">Rabta</p>
+
             <div className="home-loading-bar-track">
               <div className="home-loading-bar-fill" />
             </div>
@@ -85,14 +105,20 @@ function Mentors() {
     <div className="body">
       <div className="bodyy">
         <Topbar />
+
+        {/* Chips */}
         <div className="Sec">
-<MentorChips/></div>
+          <MentorChips />
+        </div>
+
+        {/* Upcoming Session */}
         {sessionMentor && (
           <div className="Sec">
-                <div className="ttll">
+            <div className="ttll">
               <SectionTitle title="Upcoming Sessions" />
               <Viewall text="View all" variant="ghost" />
             </div>
+
             <Mentorsesh
               avatar={
                 getKey(sessionMentor, "mentor's_pfp") ||
@@ -118,7 +144,7 @@ function Mentors() {
               rating={
                 Number(
                   getKey(sessionMentor, "featured_mentor's Rating number1") ||
-                  getKey(sessionMentor, "featured_mentor\u2019s Rating number1")
+                    getKey(sessionMentor, "featured_mentor\u2019s Rating number1")
                 ) || 5
               }
               sessions={sessionMentor["Number_ of_clients1"] ?? 0}
@@ -134,12 +160,14 @@ function Mentors() {
           </div>
         )}
 
+        {/* Featured Mentors */}
         {mentors.length > 0 && (
           <div className="Sec">
             <div className="ttll">
               <SectionTitle title="Featured Mentors" />
               <Viewall text="View all" variant="ghost" />
             </div>
+
             <div className="posts-list">
               {mentors.map((mentor) => (
                 <Mentorcard
@@ -168,7 +196,7 @@ function Mentors() {
                   rating={
                     Number(
                       getKey(mentor, "featured_mentor's Rating number1") ||
-                      getKey(mentor, "featured_mentor\u2019s Rating number1")
+                        getKey(mentor, "featured_mentor\u2019s Rating number1")
                     ) || 5
                   }
                   sessions={mentor["Number_ of_clients1"] ?? 0}
@@ -184,6 +212,7 @@ function Mentors() {
           </div>
         )}
 
+        {/* Extra Sections */}
         <div className="Sec">
           <Browserexpertise />
           <HIW />
