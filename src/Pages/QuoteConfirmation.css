@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+.qc-root {
+  width: 100%;
+  max-width: 440px;
+  min-height: 100vh;
+  background: #0e0f0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lexend Exa', sans-serif;
+  box-sizing: border-box;
+  padding: 40px 24px;
+}
+
+.qc-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: qcFadeIn 0.5s ease both;
+}
+
+@keyframes qcFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Icon ─────────────────────────────────────────────────── */
+.qc-icon-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
+}
+
+.qc-circle {
+  width: 80px;
+  height: 80px;
+}
+
+.qc-circle-fill {
+  animation: circleGrow 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes circleGrow {
+  from { stroke-dashoffset: 226; }
+  to   { stroke-dashoffset: 0;   }
+}
+
+.qc-check {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: checkPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both;
+}
+
+@keyframes checkPop {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1);   }
+}
+
+/* ── Text ─────────────────────────────────────────────────── */
+.qc-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.qc-subtitle {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+  text-align: center;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  max-width: 300px;
+}
+
+/* ── Details card ─────────────────────────────────────────── */
+.qc-details {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.qc-detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.qc-detail-row:last-child {
+  border-bottom: none;
+}
+
+.qc-detail-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+}
+
+.qc-detail-value {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.03em;
+}
+
+.qc-status {
+  color: #9aaa30;
+  background: rgba(107,122,46,0.15);
+  border: 1px solid rgba(160,180,60,0.25);
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+/* ── Tip ──────────────────────────────────────────────────── */
+.qc-tip {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.qc-tip-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.qc-tip p {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+.qc-tip strong {
+  color: rgba(255,255,255,0.65);
+  font-weight: 600;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.qc-btn-home {
+  width: 100%;
+  padding: 16px;
+  border-radius: 50px;
+  border: 1px solid rgba(160,180,60,0.3);
+  background: linear-gradient(135deg, #6b7a2e 0%, #4a5520 100%);
+  color: #f0f0e0;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(80,100,20,0.3);
+}
+
+.qc-btn-home:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.qc-btn-suppliers {
+  width: 100%;
+  padding: 15px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.6);
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.qc-btn-suppliers:hover {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.85);
+}
+
+/* ── Auto redirect ────────────────────────────────────────── */
+.qc-auto {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.2);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.qc-count {
+  color: #9aaa30;
+  font-weight: 700;
+}

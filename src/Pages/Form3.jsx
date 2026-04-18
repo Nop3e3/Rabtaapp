@@ -65,20 +65,22 @@ function Form3() {
     );
   }
 
-  return (
-      <div className="body">
-      <div className="bodyy">
-         <Topbar />
-    <QuoteStep3
-      data={formData}
-      onChange={(field, value) => setFormData((prev) => ({ ...prev, [field]: value }))}
-      onNext={() => navigate("/Form3")}
-      onCancel={() => navigate(-1)}
-    />
-     <div className="spacedown"></div>  <Navbarr />
-    
-    </div></div>
-  );
+return (
+  <div className="body">
+    <div className="bodyy">
+      <Topbar />
+      <QuoteStep3
+        data={formData}
+        onChange={(field, value) => setFormData((prev) => ({ ...prev, [field]: value }))}
+        onSubmit={() => navigate("/QuoteConfirmation")}
+        onPrev={() => navigate("/Form2")}
+        onCancel={() => navigate(-1)}
+      />
+      <div className="spacedown" />
+      <Navbarr />
+    </div>
+  </div>
+);
 }
 
 export default Form3;
