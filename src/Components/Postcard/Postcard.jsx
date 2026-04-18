@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Postcard.css";
 
-
 const HeartIcon = ({ filled }) => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill={filled ? "#e05555" : "none"} stroke={filled ? "#e05555" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -27,6 +26,14 @@ const SaveIcon = ({ saved }) => (
   </svg>
 );
 
+const MAX_CAPTION = 120;
+
+function isValidUrl(str) {
+  if (!str || typeof str !== "string") return false;
+  const t = str.trim();
+  return t.startsWith("http://") || t.startsWith("https://");
+}
+
 export default function PostCard({
   supplierName,
   supplierAvatar,
@@ -43,43 +50,67 @@ export default function PostCard({
   const [liked, setLiked] = useState(false);
   const [saved, setSaved] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
+  const [expanded, setExpanded] = useState(false);
 
   const handleLike = () => {
     setLiked((v) => !v);
     setLikeCount((v) => (liked ? v - 1 : v + 1));
   };
 
-  const renderImages = () => {
-    if (!images.length) return null;
+  const isLong = caption && caption.length > MAX_CAPTION;
+  const displayCaption = isLong && !expanded
+    ? caption.slice(0, MAX_CAPTION) + "..."
+    : caption;
 
-    if (images.length === 1) {
+  const validImages = images.filter(isValidUrl);
+
+  if (!caption?.trim() && !validImages.length) return null;
+
+  const renderImages = () => {
+    if (!validImages.length) return null;
+
+    if (validImages.length === 1) {
       return (
-        <div className="pc-images pc-images--single">
-          <img src={images[0]} alt="" className="pc-img" />
+        <div style={{
+          width: "100%",
+          height: "300px",
+          overflow: "hidden",
+          display: "block",
+        }}>
+          <img
+            src={validImages[0]}
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
         </div>
       );
     }
 
-    if (images.length === 2) {
+    if (validImages.length === 2) {
       return (
         <div className="pc-images pc-images--two">
-          <img src={images[0]} alt="" className="pc-img" />
-          <img src={images[1]} alt="" className="pc-img" />
+          <img src={validImages[0]} alt="" className="pc-img" />
+          <img src={validImages[1]} alt="" className="pc-img" />
         </div>
       );
     }
 
     return (
       <div className="pc-images pc-images--three">
-        <img src={images[0]} alt="" className="pc-img pc-img--main" />
-        <img src={images[1]} alt="" className="pc-img pc-img--small" />
-        <img src={images[2]} alt="" className="pc-img pc-img--small" />
+        <img src={validImages[0]} alt="" className="pc-img pc-img--main" />
+        <img src={validImages[1]} alt="" className="pc-img pc-img--small" />
+        <img src={validImages[2]} alt="" className="pc-img pc-img--small" />
       </div>
     );
   };
 
   return (
-    <div className="pc-card">
+    <div className="pc-cardD">
       <div className="pc-header">
         <div className="pc-avatar-wrap">
           {supplierAvatar
@@ -93,7 +124,19 @@ export default function PostCard({
         </div>
       </div>
 
-      {caption && <p className="pc-caption">{caption}</p>}
+      {caption?.trim() && (
+        <p className="pc-caption">
+          {displayCaption}
+          {isLong && (
+            <button
+              className="pc-expand-btn"
+              onClick={() => setExpanded((v) => !v)}
+            >
+              {expanded ? " Show less" : " See more"}
+            </button>
+          )}
+        </p>
+      )}
 
       {renderImages()}
 

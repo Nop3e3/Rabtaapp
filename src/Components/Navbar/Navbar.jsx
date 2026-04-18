@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { id: "library", label: "Learning", icon: Book,             path: "/LearningHub" },
   { id: "orders",  label: "Suppliers",  icon: box,              path: "/Suppliers"  },
   { id: "home",    label: "Home",    icon: Diversity,        path: "/Home"    },
-  { id: "team",    label: "Community",    icon: Home,             path: "/team"    },
+  { id: "team",    label: "Community",    icon: Home,             path: "/community"    },
   { id: "prayer",  label: "Mentorship",  icon: Personraisinghand, path: "/prayer" },
 ];
 
