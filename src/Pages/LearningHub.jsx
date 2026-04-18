@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Style.css";
 import Topbar from "../Components/Topbar/Topbar";
 import Navbarr from "../Components/Navbar/Navbar";
@@ -9,16 +10,17 @@ import ChecklistCard from "../Components/ChecklistCard/ChecklistCard";
 import Progresscoursecard from "../Components/CourseProgressCard/CourseProgressCard";
 import CourseCard2 from "../Components/CourseCard2/CourseCard2";
 import Viewall from "../Components/Viewall/Viewall";
-import Grid from "../Components/CategoryGrid/CategoryGrid"
+import Grid from "../Components/CategoryGrid/CategoryGrid";
+
 function LearningHub() {
   const [course, setCourse] = useState(null);
   const [recommendedCourses, setRecommendedCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        // Fetch row 5 (index 4) for the progress card
         const { data: courseData, error: courseError } = await supabase
           .from("learning_hub")
           .select("*")
@@ -28,13 +30,12 @@ function LearningHub() {
         if (courseError) throw courseError;
         setCourse(courseData);
 
-        // Fetch rows 4 and 6 (index 3 and 5) for CourseCard2
         const { data: recommended, error: recError } = await supabase
           .from("learning_hub")
           .select("*")
           .in("Course Name", [
-            (await supabase.from("learning_hub").select("\"Course Name\"").range(3, 3).single()).data?.["Course Name"],
-            (await supabase.from("learning_hub").select("\"Course Name\"").range(5, 5).single()).data?.["Course Name"],
+            (await supabase.from("learning_hub").select('"Course Name"').range(3, 3).single()).data?.["Course Name"],
+            (await supabase.from("learning_hub").select('"Course Name"').range(5, 5).single()).data?.["Course Name"],
           ]);
 
         if (recError) throw recError;
@@ -108,16 +109,16 @@ function LearningHub() {
             modulesCompleted={Number(course?.["Module"]?.replace(/\D/g, "")) || 4}
             modulesTotal={10}
             onPlay={() => console.log("play")}
-            onGoToCourse={() => console.log("go to course", course?.["Path"])}
+            onGoToCourse={() => navigate("/Course")}
           />
         </div>
 
         {recommendedCourses.length > 0 && (
           <div className="Sec">
-           <div className="ttll">
-                      <SectionTitle title="Reccomended" />
-                      <Viewall text="View all" variant="ghost" />
-                    </div>
+            <div className="ttll">
+              <SectionTitle title="Recommended" />
+              <Viewall text="View all" variant="ghost" />
+            </div>
             {recommendedCourses.map((c) => (
               <CourseCard2
                 key={c["Course Name"]}
@@ -132,18 +133,19 @@ function LearningHub() {
                 modules={c["Module"] || ""}
                 duration={c["Duration"] || ""}
                 bookedPct={Number(c["Success %"]?.replace("%", "")) || 93}
-                onEnroll={() => console.log("enroll", c["Path"])}
+                onEnroll={() => navigate("/Course")}
               />
             ))}
           </div>
         )}
-              <div className="Sec">
-           <div className="ttll">
-                      <SectionTitle title="Recommended Paths" />
-                      <Viewall text="View all" variant="ghost" />
-                    </div>
-    <Grid/>
+
+        <div className="Sec">
+          <div className="ttll">
+            <SectionTitle title="Recommended Paths" />
+            <Viewall text="View all" variant="ghost" />
           </div>
+          <Grid />
+        </div>
 
         <div className="spacedown" />
         <Navbarr />
