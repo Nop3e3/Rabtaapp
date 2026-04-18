@@ -13,13 +13,15 @@ import Mentor from "./Pages/Mentors";
 import Messages from "./Pages/Messages";
 import Suppliers from "./Pages/Suppliers";
 import Course from "./Pages/Course";
+import Splash from "./Pages/Splash";
 import QuoteConfirmation from "./Pages/QuoteConfirmation";
 import MentorInternal from "./Pages/MentorInternalpage";
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Splash />} />
            <Route path="/QuoteConfirmation"                element={<QuoteConfirmation />}           />
-      <Route path="/"                element={<Signup />}           />
+      <Route path="/Signup"                element={<Signup />}           />
        <Route path="/Course"                element={<Course />}           />
       <Route path="/Signin"          element={<Signin />}           />
       <Route path="/home"            element={<Home />}             />
