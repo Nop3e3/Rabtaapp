@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+.be-card {
+  width: 100%;
+
+  box-sizing: border-box;
+  background: var(--yellow-sections-background, linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%));
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 22px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+  font-family: 'Lexend Exa', sans-serif;
+  animation: beFadeIn 0.4s ease both;
+}
+
+@keyframes beFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.be-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.be-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.be-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  cursor: pointer;
+  font-family: 'Lexend Exa', sans-serif;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  animation: beItemIn 0.35s ease both;
+}
+
+@keyframes beItemIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+.be-item:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.14);
+  transform: translateX(3px);
+}
+
+.be-item:active {
+  transform: scale(0.98);
+}
+
+.be-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.be-item-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f0f0e8;
+  letter-spacing: 0.03em;
+}
+
+.be-item-count {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+}
+
+.be-item-chevron {
+  color: rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.be-item:hover .be-item-chevron {
+  transform: translateX(3px);
+  color: rgba(255,255,255,0.7);
+}

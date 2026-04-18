@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { id: "orders",  label: "Suppliers",  icon: box,              path: "/Suppliers"  },
   { id: "home",    label: "Home",    icon: Diversity,        path: "/Home"    },
   { id: "team",    label: "Community",    icon: Home,             path: "/community"    },
-  { id: "prayer",  label: "Mentorship",  icon: Personraisinghand, path: "/prayer" },
+  { id: "prayer",  label: "Mentorship",  icon: Personraisinghand, path: "/mentors" },
 ];
 
 export default function BottomNav() {
