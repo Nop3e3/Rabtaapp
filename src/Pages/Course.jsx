@@ -2,45 +2,28 @@ import React, { useEffect, useState } from "react";
 import "./Style.css";
 import Topbar from "../Components/Topbar/Topbar";
 import Navbarr from "../Components/Navbar/Navbar";
+import Coursereviews from "../Components/Coursereviews/Coursereviews"
+import Wyl from "../Components/Whatyoulearn/Whatyoulearn";
 import { supabase } from "./Supabase";
-import Coursehero from "../Components/Coursehero/Coursehero"
-import SectionTitle from "../Components/Sectitle/Secttitle";
-import Progresscard from "../Components/Progresscard/Progresscard";
-import ChecklistCard from "../Components/ChecklistCard/ChecklistCard";
-import Progresscoursecard from "../Components/CourseProgressCard/CourseProgressCard";
-import CourseCard2 from "../Components/CourseCard2/CourseCard2";
-import Viewall from "../Components/Viewall/Viewall";
-import Grid from "../Components/CategoryGrid/CategoryGrid"
+import Coursemodules from "../Components/Coursemodules/Coursemodules"
+import Coursehero from "../Components/Coursehero/Coursehero";
+import Instructorcard from "../Components/Instructorcard/Instructorcard"
 function Course() {
   const [course, setCourse] = useState(null);
-  const [recommendedCourses, setRecommendedCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        // Fetch row 5 (index 4) for the progress card
-        const { data: courseData, error: courseError } = await supabase
+        const { data, error } = await supabase
           .from("learning_hub")
           .select("*")
           .range(4, 4)
           .single();
 
-        if (courseError) throw courseError;
-        setCourse(courseData);
-
-        // Fetch rows 4 and 6 (index 3 and 5) for CourseCard2
-        const { data: recommended, error: recError } = await supabase
-          .from("learning_hub")
-          .select("*")
-          .in("Course Name", [
-            (await supabase.from("learning_hub").select("\"Course Name\"").range(3, 3).single()).data?.["Course Name"],
-            (await supabase.from("learning_hub").select("\"Course Name\"").range(5, 5).single()).data?.["Course Name"],
-          ]);
-
-        if (recError) throw recError;
-        setRecommendedCourses(recommended || []);
-
+        if (error) throw error;
+        console.log("Course keys:", Object.keys(data));
+        setCourse(data);
       } catch (err) {
         console.error("Fetch failed:", err.message);
       } finally {
@@ -75,8 +58,29 @@ function Course() {
     <div className="body">
       <div className="bodyy">
         <Topbar />
-<Coursehero/>
 
+        <div className="Sec">
+          <Coursehero
+            bgImage={course?.image || null}
+            title={course?.["Course Name"] || ""}
+            description="Learn the essential steps to transform your fashion idea into a successful business with proven strategies and real-world examples."
+            level={course?.["Level"] || ""}
+            duration={course?.["Duration"] || ""}
+            students={12540}
+            rating={
+              (course?.["Rating"] || "").split("").filter((ch) => ch === "★").length || 4.9
+            }
+            reviewCount={2847}
+          />
+        </div> 
+        <div className="Sec">
+<Instructorcard/></div>
+<div className="Sec">
+<Wyl/></div>
+<div className="Sec">
+<Coursemodules/></div>
+<div className="Sec">
+<Coursereviews/></div>
         <div className="spacedown" />
         <Navbarr />
       </div>
