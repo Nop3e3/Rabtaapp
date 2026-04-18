@@ -92,3 +92,23 @@
   from { width: 0%;    }
   to   { width: 100%;  }
 }
+
+.signin-input-wrap--error .signin-input {
+  border-color: rgba(224, 85, 85, 0.6) !important;
+  background: rgba(224, 85, 85, 0.04);
+}
+
+.signin-error {
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: #e05555;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  animation: errIn 0.2s ease both;
+}
+
+@keyframes errIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}

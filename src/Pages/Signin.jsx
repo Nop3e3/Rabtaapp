@@ -45,12 +45,36 @@ const AppleIcon = () => (
 );
 
 export default function Signin() {
-  const navigate = useNavigate(); // ✅ inside the component
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors]     = useState({});
+  const [touched, setTouched]   = useState({});
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const validate = () => {
+    const e = {};
+    if (!email.trim())         e.email    = "Email address is required";
+    else if (!isEmailValid)    e.email    = "Please enter a valid email address";
+    if (!password)             e.password = "Password is required";
+    else if (password.length < 6) e.password = "Password must be at least 6 characters";
+    return e;
+  };
+
+  const handleBlur = (field) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const e = validate();
+    setErrors(e);
+  };
+
+  const handleSubmit = () => {
+    setTouched({ email: true, password: true });
+    const e = validate();
+    setErrors(e);
+    if (Object.keys(e).length === 0) navigate("/home");
+  };
 
   return (
     <div className="body">
@@ -65,33 +89,50 @@ export default function Signin() {
           <div className="signin-form">
             {/* Email */}
             <div className="signin-field">
-              <label className="signin-label">Email address</label>
-              <div className="signin-input-wrap">
+              <label className="signin-label">
+                Email address
+                <span style={{ color: "#e05555", marginLeft: 3 }}>*</span>
+              </label>
+              <div className={`signin-input-wrap ${touched.email && errors.email ? "signin-input-wrap--error" : ""}`}>
                 <input
                   className="signin-input"
                   type="email"
                   placeholder="helloworld@gmail.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (touched.email) setErrors(validate());
+                  }}
+                  onBlur={() => handleBlur("email")}
                 />
-                {isEmailValid && (
+                {isEmailValid && !errors.email && (
                   <span className="signin-check">
                     <CheckIcon />
                   </span>
                 )}
               </div>
+              {touched.email && errors.email && (
+                <span className="signin-error">{errors.email}</span>
+              )}
             </div>
 
             {/* Password */}
             <div className="signin-field">
-              <label className="signin-label">Password</label>
-              <div className="signin-input-wrap">
+              <label className="signin-label">
+                Password
+                <span style={{ color: "#e05555", marginLeft: 3 }}>*</span>
+              </label>
+              <div className={`signin-input-wrap ${touched.password && errors.password ? "signin-input-wrap--error" : ""}`}>
                 <input
                   className="signin-input"
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (touched.password) setErrors(validate());
+                  }}
+                  onBlur={() => handleBlur("password")}
                 />
                 <button
                   className="signin-eye"
@@ -101,6 +142,9 @@ export default function Signin() {
                   {showPassword ? <EyeIcon /> : <EyeOffIcon />}
                 </button>
               </div>
+              {touched.password && errors.password && (
+                <span className="signin-error">{errors.password}</span>
+              )}
             </div>
 
             {/* Forgot */}
@@ -109,7 +153,7 @@ export default function Signin() {
             </div>
 
             {/* Login btn */}
-            <button className="signin-btn" onClick={() => navigate("/home")}>
+            <button className="signin-btn" onClick={handleSubmit}>
               Log in
             </button>
 
@@ -122,13 +166,13 @@ export default function Signin() {
 
             {/* Social buttons */}
             <div className="signin-social">
-              <button className="signin-social-btn">
+              <button className="signin-social-btn" onClick={() => navigate("/home")}>
                 <FacebookIcon />
               </button>
-              <button className="signin-social-btn">
+              <button className="signin-social-btn" onClick={() => navigate("/home")}>
                 <GoogleIcon />
               </button>
-              <button className="signin-social-btn">
+              <button className="signin-social-btn" onClick={() => navigate("/home")}>
                 <AppleIcon />
               </button>
             </div>
@@ -137,7 +181,7 @@ export default function Signin() {
           {/* Footer */}
           <p className="signin-footer-text">
             Don't have an account?{" "}
-            <Link to="/" className="signin-signup-link">Sign up</Link>
+            <Link to="/signup" className="signin-signup-link">Sign up</Link>
           </p>
 
         </div>
