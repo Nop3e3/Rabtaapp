@@ -24,9 +24,14 @@ function formatMembers(n) {
   return n.toString();
 }
 
-export default function GroupCard({ name, pfp, bgImage, postsToday, members, onJoin }) {
+export default function GroupCard({ name, pfp, bgImage, postsToday, members, onJoin, onClick }) {
   return (
-    <div className="gc-card">
+    <div
+      className="gc-card"
+      onClick={onClick}
+      onPointerUp={onClick}
+      style={{ cursor: onClick ? "pointer" : "default" }}
+    >
       <div className="gc-bg" style={{ backgroundImage: bgImage ? `url(${bgImage})` : "none" }} />
       <div className="gc-overlay" />
       <div className="gc-content">
@@ -51,7 +56,12 @@ export default function GroupCard({ name, pfp, bgImage, postsToday, members, onJ
         </div>
         <button
           className="gc-join-btn"
-          onClick={(e) => { e.stopPropagation(); onJoin?.(); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            e.nativeEvent?.stopImmediatePropagation?.();
+            onJoin?.(e);
+          }}
+          onPointerUp={(e) => e.stopPropagation()}
         >
           Join group
         </button>

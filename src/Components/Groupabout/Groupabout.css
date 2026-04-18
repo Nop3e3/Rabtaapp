@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+.gabout-card {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  background: var(--yellow-sections-background, linear-gradient(0deg, #141414 -51.88%, #2C2A32 100%));
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 22px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: 'Lexend Exa', sans-serif;
+  animation: gaboutFadeIn 0.4s ease both;
+}
+
+@keyframes gaboutFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.gabout-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.gabout-box {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px 16px;
+  background: rgba(255,255,255,0.02);
+}
+
+.gabout-text {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+  line-height: 2;
+  letter-spacing: 0.03em;
+}

@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Signup from "./Pages/Signup";
 import Signin from "./Pages/Signin";
 import InternalSupplier from "./Pages/InteralSupplierpage";
+import InternalCommunity from "./Pages/IternalCommunity";
 import LearningHub from "./Pages/LearningHub";
 import Community from "./Pages/Community";
 import Home from "./Pages/Home";
@@ -15,7 +16,8 @@ function App() {
       <Route path="/"                element={<Signup />}           />
       <Route path="/Signin"          element={<Signin />}           />
       <Route path="/home"            element={<Home />}             />
-      <Route path="/MentorInternal"            element={<MentorInternal />}             />
+      <Route path="/MentorInternal"            element={<MentorInternal />} />
+      <Route path="/InternalCommunity"            element={<InternalCommunity />}             />
       <Route path="/Mentors"            element={<Mentor/>}             />
       <Route path="/Suppliers"       element={<Suppliers />}        />
       <Route path="/InternalSupplier"element={<InternalSupplier />} />

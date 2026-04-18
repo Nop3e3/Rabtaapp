@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700;800&display=swap');
+
+.gh-card {
+  width: 100%;
+  max-width: 440px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20PX;
+  border-radius: 24PX;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family: 'Lexend Exa', sans-serif;
+}
+
+.gh-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.35) blur(2px);
+  transform: scale(1.05);
+}
+
+.gh-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.gh-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px 18px 18px;
+}
+
+.gh-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.gh-img-wrap {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+.gh-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gh-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gh-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #f0f0e8;
+  margin: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+.gh-type {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.gh-since {
+  color: rgba(255,255,255,0.35);
+}
+
+.gh-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.03em;
+}
+
+.gh-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.gh-tag {
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.04em;
+}

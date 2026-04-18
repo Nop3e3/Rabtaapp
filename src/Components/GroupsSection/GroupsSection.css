@@ -147,7 +147,9 @@
   padding: 12px;
   border-radius: 50px;
   border: 1px solid rgba(160,170,60,0.35);
-  background: linear-gradient(180deg, #6b7a2e 0%, #4a5520 100%);
+background: linear-gradient(180deg, rgb(151, 161, 91) 0%, rgb(86, 94, 36) 100%);
+
+
   color: #f0f0e0;
   font-family: 'Lexend Exa', sans-serif;
   font-size: 0.75rem;
