@@ -6,6 +6,9 @@ import InternalCommunity from "./Pages/IternalCommunity";
 import LearningHub from "./Pages/LearningHub";
 import Community from "./Pages/Community";
 import Home from "./Pages/Home";
+import Form1 from "./Pages/Form1";
+import Form2 from "./Pages/Form2";
+import Form3 from "./Pages/Form3";
 import Mentor from "./Pages/Mentors";
 import Messages from "./Pages/Messages";
 import Suppliers from "./Pages/Suppliers";
@@ -18,6 +21,9 @@ function App() {
        <Route path="/Course"                element={<Course />}           />
       <Route path="/Signin"          element={<Signin />}           />
       <Route path="/home"            element={<Home />}             />
+     <Route path="/Form1"            element={<Form1 />}             />
+       <Route path="/Form2"            element={<Form2 />}             />
+        <Route path="/Form3"            element={<Form3 />}             />
       <Route path="/MentorInternal"            element={<MentorInternal />} />
       <Route path="/InternalCommunity"            element={<InternalCommunity />}             />
       <Route path="/Mentors"            element={<Mentor/>}             />

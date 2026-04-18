@@ -96,8 +96,13 @@ function Suppliers() {
         </div>
 
         <div className="Sec">
-          <Button text="Request a Quote" variant="primary" size="large" />
-          <Button text="View all requests" variant="secondary" size="large" />
+             <Button
+        text="Request a Quote"
+        variant="primary"
+        size="large"
+        onClick={() => navigate("/Form1")}
+      />
+       <Button text="View all requests" variant="secondary" size="large" />
         </div>
 
         <div className="Sec">

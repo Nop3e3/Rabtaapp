@@ -12,6 +12,9 @@ import Portfolio from "../Components/PortfolioCard/PortfolioCard";
 import ReviewsCard from "../Components/ReviewsCard/ReviewsCard";
 import Button from "../Components/Buttons/button";
 
+// ✅ ADD THIS
+import { useNavigate } from "react-router-dom";
+
 function getKey(obj, name) {
   if (!obj) return undefined;
   if (obj[name] !== undefined) return obj[name];
@@ -39,6 +42,9 @@ const TRUST_DESCRIPTIONS = {
 };
 
 function Suppliers() {
+  // ✅ ADD THIS
+  const navigate = useNavigate();
+
   const [supplier, setSupplier] = useState(null);
   const [activeTab, setActiveTab] = useState("Overview");
   const [loading, setLoading] = useState(true);
@@ -157,7 +163,6 @@ function Suppliers() {
               onTabChange={handleTabChange}
             />
 
-            {/* Overview section */}
             <div className="Sec" ref={overviewRef}>
               <About text={getKey(supplier, "supplier's_about") || getKey(supplier, "supplier\u2019s_about") || ""} />
             </div>
@@ -179,12 +184,10 @@ function Suppliers() {
               />
             </div>
 
-            {/* Portfolio section */}
             <div className="Sec" ref={portfolioRef}>
               <Portfolio images={portfolioImages} onViewAll={() => console.log("View all portfolio")} />
             </div>
 
-            {/* Reviews section */}
             <div className="Sec" ref={reviewsRef}>
               <ReviewsCard
                 overallRating={Number(supplier.rating1) || Number(supplier.rating2) || 4.8}
@@ -196,9 +199,21 @@ function Suppliers() {
           </>
         )}
 
+        {/* ✅ FIXED BUTTONS */}
         <div className="Sec">
-          <Button text="Request a Quote" variant="primary" size="large" />
-          <Button text="View all requests" variant="secondary" size="large" />
+          <Button
+            text="Request a Quote"
+            variant="primary"
+            size="large"
+            onClick={() => navigate("/Form1")}
+          />
+
+          <Button
+            text="View all requests"
+            variant="secondary"
+            size="large"
+            onClick={() => navigate("/requests")}
+          />
         </div>
 
         <div className="spacedown" />
