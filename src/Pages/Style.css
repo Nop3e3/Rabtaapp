@@ -687,3 +687,281 @@ text-decoration-thickness: auto;
 text-underline-offset: auto;
 text-underline-position: from-font;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── Search Bar ── */
+.sup-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px 16px;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.sup-search-bar:focus-within {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.sup-search-icon {
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.sup-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.sup-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.sup-search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.sup-search-clear:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sup-search-clear svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Capability Chips ── */
+.sup-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.sup-cap-chip {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.18s;
+  letter-spacing: 0.02em;
+}
+
+.sup-cap-chip:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.sup-cap-chip.active {
+  background: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+/* ── Results Row ── */
+.sup-results-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sup-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sup-clear-btn {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+
+.sup-clear-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ── Sort Dropdown ── */
+.sup-sort-wrap {
+  position: relative;
+}
+
+.sup-sort-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.sup-sort-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.sup-sort-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.sup-sort-caret {
+  transition: transform 0.2s;
+}
+
+.sup-sort-caret.open {
+  transform: rotate(180deg);
+}
+
+.sup-sort-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 6px;
+  min-width: 160px;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.sup-sort-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+
+.sup-sort-option:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.sup-sort-option.active {
+  color: #fff;
+}
+
+.sup-sort-option svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Empty State ── */
+.sup-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 48px 24px;
+  width: 100%;
+  text-align: center;
+}
+
+.sup-empty svg {
+  width: 56px;
+  height: 56px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.sup-empty p {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.sup-empty button {
+  font-family: "Lexend Exa", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sup-empty button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
